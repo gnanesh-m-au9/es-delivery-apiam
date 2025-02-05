@@ -33,7 +33,18 @@
     {
       "file": "ice-spa-app/src/config.js",
       "description": "## Update the Promos app configuration\n\n*Notice that ice-spa-app/src/config.js has been opened for you.*\n\nWe're going to update the scopes so that only `openid` and `profile` are requested by default.\n\n1. Select the **Insert Code** link at the end of the code snippet below to make this replacement on the highlighted line in `ice-spa-app/src/config.js`.\n\n```js\nscopes: [“openid”, “profile”\\];\n```",
-      "line": 8
+      "line": 8,
+      "selection": {
+        "start": {
+          "line": 8,
+          "character": 1
+        },
+        "end": {
+          "line": 8,
+          "character": 70
+        }
+      }
+
     },
     {
       "title": "Test the updated configuration",
