@@ -13,7 +13,7 @@
     },
     {
       "title": "Test the user consent page",
-      "description": "## Test the user consent page\n\n1.  Visit the SPA app.\n\n2.  Click **Login**.\n\n3.  Sign in with your Okta credentials.\n\n4.  The user consent dialog window pop-up.\n\n![](https://raw.githubusercontent.com/OktaEdu/es-delivery-apiam/refs/heads/ondemand/media/image21.png)\n\n5.  Click **Cancel**. You will get the error:  \n    **OAuthError: The following scopes require user consent:\n    \\[promos:read\\].**\n\n6.  Click **Login** and sign in with your Okta credentials.\n\n7.  This time click **Allow Access.**\n\n8.  Verify now you can access the **Profile** page as normal**.**\n\n9.  Logout.\n\n11. Select **Login**.\n\n12. Sign in with your Okta credentials.\n\n13. Pause and consider the following questions:\n    - Does the user consent dialog window pop-up? \n    - Why or why not?"
+      "description": "## Test the user consent page\n\n1.  Visit the SPA app.\n\n2.  Click **Login**.\n\n3.  Sign in with your Okta credentials.\n\n4.  The user consent dialog window pop-up.\n\n![](https://raw.githubusercontent.com/OktaEdu/es-delivery-apiam/refs/heads/ondemand/media/image21.png)\n\n5.  Click **Cancel**. You will get the error:  \n    **OAuthError: The following scopes require user consent:\n    \\[promos:read\\].**\n\n6.  Click **Login** and sign in with your Okta credentials.\n\n7.  This time click **Allow Access.**\n\n8.  Verify now you can access the **Profile** page as normal\n\n9.  Logout.\n\n11. Select **Login**.\n\n12. Sign in with your Okta credentials.\n\n13. Pause and consider the following questions:\n    - Does the user consent dialog window pop-up? \n    - Why or why not?"
     },
     {
       "title": "Turn off consent for the promos:read scope",
