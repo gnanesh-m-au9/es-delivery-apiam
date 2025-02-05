@@ -153,8 +153,8 @@ export default function (app) {
   //BEGIN: DELETE ALL PROMOS (DELETE http://localhost:8081/delete)
   //PROTECTION REQUIRED: ONLY REQUESTS WITH THE OAUTH SCOPE: 'promos:delete' CAN ACCESS
   app.delete(
-    "/delete",
-   
+    "/delete", function (req, res, next) {validationRequired(req, res, next, ['promos:delete']); },
+
     function (req, res, next) {
       var removeAll = promos.chain().remove();
       console.log("Removed all entries from database");

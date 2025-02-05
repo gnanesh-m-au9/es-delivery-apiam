@@ -18,89 +18,109 @@
       "line": 1,
       "selection": {
         "start": {
-          "line": 6,
+          "line": 1,
           "character": 1
         },
         "end": {
-          "line": 9,
-          "character": 55
+          "line": 1,
+          "character": 2
         }
       }
     },
     {
       "file": "ice-resource-server/controllers/securityUtils.js",
       "description": "## Implement JWT verification\n*Notice that ./ice-resource-server/controllers/securityUtils.js has been opened for you.*\n\n\n\n1. Select the **Insert Code** link that follows the code snippet to insert this code into the `validationRequired` function above.\n> Review the code to understand how it uses the [Okta JWT Verifier](https://github.com/okta/okta-jwt-verifier-js) Node.js library to extract the Access Token from the authorization header, decode the claims, and verify the token signature and claims. \n\n\n```js\n//Extract the Access token\nconst authHeader = req.headers.authorization ? req.headers.authorization : \"\";\nconst match = authHeader.match(/Bearer (.+)/);\n// Return Unauthorized status if no token \nif (!match) {\n  return res.status(401).end();\n}\nconst accessToken = match[1];\n//Initiate OktaJwtVerifier\nconst verifier = new OktaJwtVerifier({\n     issuer: configs.issuer,\n     clientId: configs.clientId,\n     assertClaims: {\n       aud: configs.audience,\n       'scp.includes': scopes\n    }\n});\n//Verify the access token\nverifier.verifyAccessToken(accessToken, configs.audience)\n    .then((jwt) => {\n        req.jwt = jwt;\n        next();\n      })\n    .catch((err) => {\n        res.status(401).send(err.message);\n    });\n```",
-      "line": 7,
-      "selection": {
-        "start": {
-          "line": 7,
-          "character": 49
-        },
-        "end": {
-          "line": 7,
-          "character": 122
-        }
-      }
+      "line": 6
     },
     {
       "file": "ice-resource-server/controllers/setupController.js",
       "description": "## Enable JWT Verification for the Promos API\n\n*Notice that ./ice-resource-server/controllers/setupControllers.js has been opened for you.*\n\nUncomment the line highlighted above to import `validationRequired`. We'll explore that in a moment.",
-      "line": 3
-    },
-    {
-      "file": "ice-resource-server/controllers/setupController.js",
-      "description": "## Protect the GET /promos endpoint\n\nThe `GET` `/promos` endpoint exposes all promos, including premium ones, so this endpoint needs to required the `read:promos` scope. We'll use the `validationRequired` method we just implemented using the Okta JWT Verification Node.js library.\n\n1. Select the **Insert Code** link at the end of the code snippet to add it to the `GET` `/promos` implementation.\n```js\n function (req, res, next) {\n       validationRequired(req, res, next, ['promos:read']);\n     },\n```",
-      "line": 64,
-      "selection": {
-        "start": {
-          "line": 1,
-          "character": 1
-        },
-        "end": {
-          "line": 1,
-          "character": 32
-        }
-      }
-    },
-    {
-      "file": "ice-resource-server/controllers/setupController.js",
-      "description": "## Protect the GET /promos/:filter endpoint\n\nRecall that the `GET` `/promos/:filter` endpoint also exposes premium promos, so this endpoint needs to required the `read:promos` scope. We'll use the `validationRequired` method we just implemented using the Okta JWT Verification Node.js library.\n\n1. Select the **Insert Code** link at the end of the code snippet to add it to the `GET` `/promos` implementation.\n```js\n function (req, res, next) {\n       validationRequired(req, res, next, ['promos:read']);\n     },\n```",
-      "line": 78,
-      "selection": {
-        "start": {
-          "line": 1,
-          "character": 1
-        },
-        "end": {
-          "line": 10,
-          "character": 4
-        }
-      }
-    },
-    {
-      "file": "ice-resource-server/controllers/setupController.js",
-      "description": "## Protect the POST /promos endpoint\n\nNext we'll protect the `POST` `/promos` endpoint used to create new promos. This should now require the `promos:create` scope.\n\n1. Select the **Insert Code** link at the end of the code snippet to add it to the `POST` `/promos` implementation.\n```js\n function (req, res, next) {\n       validationRequired(req, res, next, ['promos:create']);\n     },\n```",
-      "line": 97,
+      "line": 3,
       "selection": {
         "start": {
           "line": 3,
-          "character": 77
+          "character": 1
         },
         "end": {
           "line": 3,
-          "character": 127
+          "character": 2
         }
       }
     },
     {
       "file": "ice-resource-server/controllers/setupController.js",
-      "description": "## Protect the DELETE /promos/:filter endpoint\n\n\nNow we'll protect the `DELETE` `/promos/:filter` endpoint used to delete certain promos. This should now require the `promos:delete` scope.\n\n1. Select the **Insert Code** link at the end of the code snippet to add it to the `DELETE` `/promos` implementation.\n```js\n function (req, res, next) {\n       validationRequired(req, res, next, ['promos:delete']);\n     },\n```",
-      "line": 132
+      "description": "## Protect the GET /promos endpoint\n\nThe `GET` `/promos` endpoint exposes all promos, including premium ones, so this endpoint needs to required the `read:promos` scope. We'll use the `validationRequired` method we just implemented using the Okta JWT Verification Node.js library.\n\n1. Select the **Insert Code** link at the end of the code snippet to add it to the `GET` `/promos` implementation.\n```js\n function (req, res, next) {validationRequired(req, res, next, ['promos:read']);},\n```",
+      "line": 63,
+      "selection": {
+        "start": {
+          "line": 63,
+          "character": 16
+        },
+        "end": {
+          "line": 63,
+          "character": 16
+        }
+      }
     },
     {
       "file": "ice-resource-server/controllers/setupController.js",
-      "description": "## Protect the DELETE /promos endpoint\n\n\nLast, we'll protect the `DELETE` `/promos` endpoint used to delete all promos. This should now require the `promos:delete` scope.\n\n1. Select the **Insert Code** link at the end of the code snippet to add it to the `DELETE` `/promos` implementation.\n```js\n function (req, res, next) {\n       validationRequired(req, res, next, ['promos:delete']);\n     },\n```",
-      "line": 157
+      "description": "## Protect the GET /promos/:filter endpoint\n\nRecall that the `GET` `/promos/:filter` endpoint also exposes premium promos, so this endpoint needs to required the `read:promos` scope. We'll use the `validationRequired` method we just implemented using the Okta JWT Verification Node.js library.\n\n1. Select the **Insert Code** link at the end of the code snippet to add it to the `GET` `/promos` implementation.\n```js\n function (req, res, next) {validationRequired(req, res, next, ['promos:read']);},\n```",
+      "line": 77,
+      "selection": {
+        "start": {
+          "line": 77,
+          "character": 24
+        },
+        "end": {
+          "line": 77,
+          "character": 24
+        }
+      }
+    },
+    {
+      "file": "ice-resource-server/controllers/setupController.js",
+      "description": "## Protect the POST /promos endpoint\n\nNext we'll protect the `POST` `/promos` endpoint used to create new promos. This should now require the `promos:create` scope.\n\n1. Select the **Insert Code** link at the end of the code snippet to add it to the `POST` `/promos` implementation.\n```js\n function (req, res, next) {validationRequired(req, res, next, ['promos:create']);},\n```",
+      "line": 96,
+      "selection": {
+        "start": {
+          "line": 96,
+          "character": 16
+        },
+        "end": {
+          "line": 96,
+          "character": 16
+        }
+      }
+    },
+    {
+      "file": "ice-resource-server/controllers/setupController.js",
+      "description": "## Protect the DELETE /promos/:filter endpoint\n\n\nNow we'll protect the `DELETE` `/promos/:filter` endpoint used to delete certain promos. This should now require the `promos:delete` scope.\n\n1. Select the **Insert Code** link at the end of the code snippet to add it to the `DELETE` `/promos` implementation.\n```js \nfunction (req, res, next) { validationRequired(req, res, next, ['promos:delete']);},\n```",
+      "line": 131,
+      "selection": {
+        "start": {
+          "line": 131,
+          "character": 25
+        },
+        "end": {
+          "line": 131,
+          "character": 25
+        }
+      }
+    },
+    {
+      "file": "ice-resource-server/controllers/setupController.js",
+      "description": "## Protect the DELETE /promos endpoint\n\n\nLast, we'll protect the `DELETE` `/promos` endpoint used to delete all promos. This should now require the `promos:delete` scope.\n\n1. Select the **Insert Code** link at the end of the code snippet to add it to the `DELETE` `/promos` implementation.\n```js\n function (req, res, next) {validationRequired(req, res, next, ['promos:delete']); },\n```",
+      "line": 156,
+      "selection": {
+        "start": {
+          "line": 156,
+          "character": 16
+        },
+        "end": {
+          "line": 156,
+          "character": 16
+        }
+      }
     },
     {
       "title": "Test the Promos App after protecting the Promos API",
