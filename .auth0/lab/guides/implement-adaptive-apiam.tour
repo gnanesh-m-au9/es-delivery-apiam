@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
-  "title": "#10 - Implement Adaptive API Access Management",
+  "title": "#9 - Implement Adaptive API Access Management",
   "steps": [
     {
       "title": "Lab overview",
