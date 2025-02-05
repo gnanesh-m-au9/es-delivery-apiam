@@ -34,7 +34,7 @@
   "dependencies": {
     "concurrently": "^7.3.0",
     "eslint": "^8.20.0",
-    "prettier": "^2.7.1"
+    "prettier": "^3.4.2"
   },
   "prettier": {
     "printWidth": 80,
