@@ -1,7 +1,7 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
   "title": "#4 - Configure API Access Management",
-  "nextTour": "#5 - Test the Promos App after Protecting the API",
+  "nextTour": "#5 - Protect the Promos API with OAuth 2.0",
   "steps": [
     {
       "title": "Lab overview",
