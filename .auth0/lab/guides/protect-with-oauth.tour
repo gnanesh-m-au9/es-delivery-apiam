@@ -123,8 +123,22 @@
       }
     },
     {
+      "title": "Stop and restart Promos services",
+      "description": "## Stop and restart Promos services\n\n1. Click [here](command:workbench.action.debug.stop) to stop your Promos SPA and API.\n2. Click [here](command:workbench.action.debug.start) to restart your Promos SPA (port 8080) and API (port 8081).",
+      "selection": {
+        "start": {
+          "line": 3,
+          "character": 1
+        },
+        "end": {
+          "line": 4,
+          "character": 114
+        }
+      }
+    },
+    {
       "title": "Test the Promos App after protecting the Promos API",
-      "description": "## Test the Promos App after protecting the Promos API\n\n>Ensure you are logged out of Okta before proceeding. This is important since the application is now associated with a custom Authorization Server and the app needs to request new tokens from this server.\n\n1.  Visit the SPA app in the Chrome browser. \n    - If you closed it, you can do this by selecting the **PORTS** tab below and selecting the globe icon that appears when you hover over the **Forwarded Address** for port 8080. \n\n2.  From the home page, click **Promos**, so the public promos appear.\n\n3.  Click **Profile**.\n\n4.  Sign in as your Okta Super Admin user.\n\n5.  Click **Promos**.\n\n6.  Click **Premium Promos**.\n\n7.  Consider the following questions before moving on:\n    - Are you able to get the PREMIUM promo codes after login?\n    - Why or why not?\n"
+      "description": "## Test the Promos App after protecting the Promos API\n\n>Ensure you are logged out of Okta before proceeding. This is important since the application is now associated with a custom Authorization Server and the app needs to request new tokens from this server.\n\n1.  Visit the SPA app in the Chrome browser. \n    - You can do this by selecting the **PORTS** tab below and selecting the globe icon that appears when you hover over the **Forwarded Address** for port 8080. \n\n2.  From the home page, click **Promos**, so the public promos appear.\n\n3.  Click **Profile**.\n\n4.  Sign in as your Okta Super Admin user.\n\n5.  Click **Promos**.\n\n6.  Click **Premium Promos**.\n\n7.  Consider the following questions before moving on:\n    - Are you able to get the PREMIUM promo codes after login?\n    - Why or why not?\n"
     },
     {
       "title": "Perform a network trace",
