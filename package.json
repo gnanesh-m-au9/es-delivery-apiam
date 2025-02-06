@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/OktaEdu/es-delivery-apiam.git"
   },
-"scripts": {
+  "scripts": {
     "init": "concurrently \"npm:init:dependencies\"",
     "init:dependencies": "concurrently \"npm:api:dependencies\"  \"npm:spa:dependencies\"",
     "api:start": "npm start --prefix ./ice-resource-server",
