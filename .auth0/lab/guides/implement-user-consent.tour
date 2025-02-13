@@ -1,7 +1,6 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
   "title": "#8 - Implement User Consent",
-  "nextTour": "#9 - Implement Adaptive API Access Management",
   "steps": [
     {
       "title": "Lab overview",
@@ -21,7 +20,7 @@
     },
     {
       "title": "Lab checkpoint",
-      "description": "## ✅ Checkpoint\nYou successfully implemented User Consent for the promos:read scope and the Promos app.",
+      "description": "## ✅ Checkpoint\nYou successfully implemented User Consent for the promos:read scope and the Promos app.\n\nThis is the final component of this lab. You may now safely exit and [shut down this codespace](https://docs.github.com/en/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace#stopping-a-codespace).",
       "selection": {
         "start": {
           "line": 15,
