@@ -30,7 +30,12 @@ createApp(App)
   .mount("#app");
 
 export async function getAuthHeader() {
-  return {};
+    const token = await oktaAuth.getAccessToken(); // Request access token using the AuthJS SDK
+    return {
+        headers: {
+        Authorization: `Bearer ${token}` // return Authorization header with access token as value
+        }
+    }
 }
 
 export async function adaptScopes() {
