@@ -1,0 +1,51 @@
+{
+  "name": "lab-apiam",
+  "version": "1.0",
+  "description": "An Okta training lab.",
+  "license": "MIT",
+  "author": "Okta",
+  "bugs": {
+    "url": "https://github.com/OktaEdu/es-delivery-apiam/issues"
+  },
+  "homepage": "https://github.com/OktaEdu/es-delivery-apiam/blob/ondemand/README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OktaEdu/es-delivery-apiam.git"
+  },
+  "scripts": {
+    "init": "concurrently \"npm:init:dependencies\"",
+    "init:dependencies": "concurrently \"npm:api:dependencies\"  \"npm:spa:dependencies\"",
+    "api:start": "npm start --prefix ./ice-resource-server",
+    "api:dependencies": "npm install --prefix ./ice-resource-server",
+    "spa:start": "npm run serve --prefix ./ice-spa-app",
+    "spa:build": "npm run build --prefix ./ice-spa-app",
+    "spa:dependencies": "npm install --prefix ./ice-spa-app"
+  },
+  "keywords": [
+    "okta",
+    "oauth2",
+    "api",
+    "oidc",
+    "authz",
+    "authorization",
+    "samples",
+    "labs"
+  ],
+  "dependencies": {
+    "concurrently": "^7.3.0",
+    "eslint": "^8.57.1",
+    "prettier": "^3.4.2"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "singleQuote": true,
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "endOfLine": "auto",
+    "quoteProps": "consistent",
+    "semi": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false
+  }
+}

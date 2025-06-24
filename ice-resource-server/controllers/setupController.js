@@ -1,6 +1,6 @@
 import loki from "lokijs";
 let db = new loki("ice");
-//import { validationRequired } from "./securityUtils.js";
+import { validationRequired } from "./securityUtils.js";
 
 export default function (app) {
   //BEGIN: STARTS IN-MEMORY DB (LOKIJS) AND SEED DATA
@@ -60,10 +60,8 @@ export default function (app) {
   //BEGIN: GET ALL PROMOS (GET http://localhost:8081/promos)
   //PROTECTION REQUIRED: ONLY REQUESTS WITH THE OAUTH SCOPE: 'promos:read' CAN ACCESS
   app.get(
-    "/promos",
-    // function (req, res, next) {
-    //   validationRequired(req, res, next, ['promos:read']);
-    // },
+    "/promos", function (req, res, next) {validationRequired(req, res, next, ['promos:read']);},
+
     function (req, res, next) {
       var query = promos.chain().find({}).simplesort("code").data();
       console.log("Promos: " + JSON.stringify(query));
@@ -76,10 +74,8 @@ export default function (app) {
   //BEGIN: SEARCH SPECIFIC PROMOS (GET http://localhost:8081/promos/:filter)
   //PROTECTION REQUIRED: ONLY REQUESTS WITH THE OAUTH SCOPE: 'promos:read' CAN ACCESS
   app.get(
-    "/promos/:filter",
-    // function (req, res, next) {
-    //   validationRequired(req, res, next, ['promos:read']);
-    // },
+    "/promos/:filter", function (req, res, next) {validationRequired(req, res, next, ['promos:read']);},
+
     function (req, res, next) {
       var query = promos
         .chain()
@@ -97,10 +93,8 @@ export default function (app) {
   //BEGIN: CREATE PROMOS (POST http://localhost:8081/promos)
   //PROTECTION REQUIRED: ONLY REQUESTS WITH THE OAUTH SCOPE: 'promos:create' CAN ACCESS
   app.post(
-    "/promos",
-    // function (req, res, next) {
-    //   validationRequired(req, res, next, ['promos:create']);
-    // },
+    "/promos", function (req, res, next) {validationRequired(req, res, next, ['promos:create']);},
+
     function (req, res, next) {
       var promo = req.body;
       console.log(promo);
@@ -134,10 +128,8 @@ export default function (app) {
   //BEGIN: DELETE PROMOS (DELETE http://localhost:8081/promos)
   //PROTECTION REQUIRED: ONLY REQUESTS WITH THE OAUTH SCOPE: 'promos:delete' CAN ACCESS
   app.delete(
-    "/promos/:filter",
-    // function (req, res, next) {
-    //   validationRequired(req, res, next, ['promos:delete']);
-    // },
+    "/promos/:filter",function (req, res, next) { validationRequired(req, res, next, ['promos:delete']);},
+
     function (req, res, next) {
       var query = promos
         .chain()
@@ -161,10 +153,8 @@ export default function (app) {
   //BEGIN: DELETE ALL PROMOS (DELETE http://localhost:8081/delete)
   //PROTECTION REQUIRED: ONLY REQUESTS WITH THE OAUTH SCOPE: 'promos:delete' CAN ACCESS
   app.delete(
-    "/delete",
-    // function (req, res, next) {
-    //   validationRequired(req, res, next, ['promos:delete']);
-    // },
+    "/delete", function (req, res, next) {validationRequired(req, res, next, ['promos:delete']); },
+
     function (req, res, next) {
       var removeAll = promos.chain().remove();
       console.log("Removed all entries from database");

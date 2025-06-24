@@ -1,0 +1,7 @@
+{
+  "name": "Lab API Access Management",
+  "version": "1.0",
+  "unauthenticatedTour": ".auth0/lab/guides/set-up-your-okta-org.tour",
+  "postConfigureTour": ".auth0/lab/guides/set-up-your-okta-org.tour",
+  "clients": [{}]
+}
